@@ -1,0 +1,41 @@
+{
+  "global": {
+  },
+  "locales": [{
+    "name": "USA",
+    "locale": "en-US",
+    "flag": "us",
+    "selected": true
+  }],
+  "themes": [{
+    "id": "default-theme",
+    "name": "Default",
+    "icon": "color_lens",
+    "selected": false
+  }, {
+    "id": "dark-theme",
+    "name": "Dark",
+    "icon": "color_lens",
+    "selected": true
+  },
+  {
+    "id": "navy-theme",
+    "name": "Navy Dark",
+    "icon": "color_lens",
+    "selected": false
+  }],
+  "httpClient": {
+    "tokenKey": "myapp-token"
+  },
+  "apiClient": {
+    "type": "live"
+  },
+  "items": {
+    "apiUrls": {
+      "fetchState": "/json/state",
+      "fetchInfo": "/json/info",
+      "fetchEffect": "/json/eff",
+      "fetchPalettes": "/json/pal"
+    }
+  }
+}

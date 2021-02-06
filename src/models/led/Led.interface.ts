@@ -31,4 +31,4 @@ export interface LedInterface {
   seglock: boolean;
   /** UNKNOWN */
   wv: boolean;
-};
+}

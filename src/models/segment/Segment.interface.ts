@@ -72,4 +72,4 @@ export interface SegmentInterface {
    * Relative effect speed
    */
   sx: number;
-};
+}

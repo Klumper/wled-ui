@@ -1,18 +1,32 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <NavbarComponent />
+    <pre>{{ info }}</pre>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { defineComponent, computed, onMounted } from 'vue';
+import { useInfoStore } from '@/store/info';
+import { MutationType } from '@/models/store';
+import NavbarComponent from '@/components/navbar/Navbar.component.vue';
 
 export default defineComponent({
   name: 'Home',
   components: {
-    HelloWorld,
+    NavbarComponent,
+  },
+  setup () {
+    const infoStore = useInfoStore();
+    const info = computed(() => infoStore.state.info);
+    const loading = computed(() => infoStore.state.loading);
+    onMounted(() => {
+      infoStore.action(MutationType.info.loadItems);
+    });
+    return {
+      info,
+      loading,
+    };
   },
 });
 </script>

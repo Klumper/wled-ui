@@ -35,7 +35,7 @@ export interface InfoInterface {
   /**
    * Realtime data source IP address
    */
-  lip: string
+  lip: string;
   /**
    * If true, the software is currently receiving realtime data via UDP or E1.31.
    */
@@ -54,7 +54,7 @@ export interface InfoInterface {
    * Friendly name of the light.
    * Intended for display in lists and titles.
    */
-  name: string
+  name: string;
   /**
    * Used for debugging purposes only.
    */
@@ -66,7 +66,7 @@ export interface InfoInterface {
   /**
    * The product name. Always FOSS for standard installations.
    */
-  product: number;
+  product: string;
   /**
    * If true, an UI with only a single button for toggling sync should toggle receive+send, otherwise send only
    */
@@ -96,4 +96,4 @@ export interface InfoInterface {
    * -1 indicates that WS is unsupported in this build.
    */
   ws: number;
-};
+}

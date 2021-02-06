@@ -17,4 +17,4 @@ export interface WifiInterface {
    * Relative signal quality of the current connection.
    */
   signal: number;
-};
+}

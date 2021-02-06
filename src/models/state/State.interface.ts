@@ -60,4 +60,4 @@ export interface StateInterface {
    * UDPN settings
    */
   udpn: UdpnInterface;
-};
+}
