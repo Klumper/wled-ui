@@ -14,6 +14,7 @@
     "test-mock": "cross-env VUE_APP_CONFIG=mock vue-cli-service test:unit"
   },
   "dependencies": {
+    "@jaames/iro": "^5.3.1",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
