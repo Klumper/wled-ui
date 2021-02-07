@@ -1,8 +1,12 @@
 <template>
   <div class="home">
     <NavbarComponent />
-    <pre>{{ info }}</pre>
-    <ColorpickerComponent @color:change="onColorChange" />
+    
+    <main class="my-10 mx-auto max-w-7xl px-4">
+      <div class="text-center">
+        <ColorpickerComponent @color:change="onColorChange" />
+      </div>
+    </main>
   </div>
 </template>
 

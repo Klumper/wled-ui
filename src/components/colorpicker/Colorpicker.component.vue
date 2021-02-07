@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeUnmount } from 'vue';
+import { defineComponent, onBeforeUnmount, onMounted, reactive, watch } from 'vue';
 import iro from '@jaames/iro';
 
 export default defineComponent({
@@ -25,9 +25,8 @@ export default defineComponent({
     'mount',
   ],
   setup (props, { emit }) {
-    const colorPicker: iro.ColorPicker = iro.ColorPicker('#color-picker', {
-      color: props.color,
-    });
+    let colorPicker: iro.ColorPicker;
+    const windowSize = reactive({ width: 0, height: 0 });
 
     // #region Input event handlers
     const inputChangeCallback = (color: iro.Color) => emit('input:change', color);
@@ -43,8 +42,13 @@ export default defineComponent({
     const colorSetActiveCallback  = (color: iro.Color) => emit('color:setActive', color);
     // #endregion
 
+    const updateWindowSize = () => {
+      windowSize.width = document.documentElement.clientWidth;
+      windowSize.height = document.documentElement.clientHeight;
+    };
 
     const initializeEventHandlers = () => {
+      window.addEventListener('resize', updateWindowSize);
       colorPicker.on('input:change', inputChangeCallback);
       colorPicker.on('input:start', inputStartCallback);
       colorPicker.on('input:move', inputMoveCallback);
@@ -57,6 +61,7 @@ export default defineComponent({
     };
 
     const removeEventHandlers = () => {
+      window.removeEventListener('resize', updateWindowSize);
       colorPicker.off('input:change', inputChangeCallback);
       colorPicker.off('input:start', inputStartCallback);
       colorPicker.off('input:move', inputMoveCallback);
@@ -72,16 +77,49 @@ export default defineComponent({
       emit('mount', picker);
       initializeEventHandlers();
     };
-
-    colorPicker.on('mount', onMountCallback);
+    onMounted(() => {
+      updateWindowSize();
+      colorPicker = iro.ColorPicker('#color-picker', {
+        color: props.color,
+        display: 'inline-block',
+      });
+      colorPicker.on('mount', onMountCallback);
+    });
 
     onBeforeUnmount (() => {
       removeEventHandlers();
     });
     
-    return {
-      colorPicker,
-    };
+    watch(
+      () => windowSize.width,
+      (width: number) => {
+        switch (true) {
+        case (width >= 640 && width < 768):
+          // sm breakpoint
+          colorPicker.resize(width * .7);
+          break;
+        case (width >= 768 && width < 1024):
+          // md breakpoint
+          colorPicker.resize(width * .5);
+          break;
+        case (width >= 1024 && width < 1280):
+          // lg breakpoint
+          colorPicker.resize(width * .3);
+          break;
+        case (width >= 1280 && width < 1536):
+          // xl breakpoint
+          colorPicker.resize(width * .3);
+          break;
+        case (width >= 1536):
+          // 2xl breakpoint
+          colorPicker.resize(width * .5);
+          break;
+        default:
+          colorPicker.resize(width * .7);
+          break;
+        }
+      },
+    );
   },
 });
 </script>
