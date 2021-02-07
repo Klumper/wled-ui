@@ -1,4 +1,5 @@
 import { InfoApiClientUrlsInterface } from '@/models/api-client/info';
+import { StateApiClientUrlsInterface } from '@/models/api-client/state';
 import { LocaleInfoInterface } from '@/models/localization/LocaleInfo.interface';
 
 interface ThemeInfoInterface {
@@ -30,7 +31,16 @@ export interface ConfigInterface {
     type: string;
   };
 
-  items: {
+  info: {
     apiUrls: InfoApiClientUrlsInterface;
+  };
+  state: {
+    apiUrls: StateApiClientUrlsInterface;
+  };
+  effect: {
+    apiUrls: EffectApiClientUrlsInterface;
+  };
+  palette: {
+    apiUrls: PaletteApiClientUrlsInterface;
   };
 }

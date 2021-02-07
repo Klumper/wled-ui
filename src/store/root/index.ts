@@ -3,10 +3,11 @@ import { RootStateInterface, RootStoreModel } from '@/models/store';
 
 import { initialRootState } from './initialState';
 
-// import each Vuex module
-// GEN-IMPORTS-STATE
 import { infoState } from '@/store/info/module';
 import { localesState } from '@/store/locales/module';
+import { stateState } from '@/store/state/module';
+import { paletteState } from '@/store/palette/module';
+import { effectState } from '@/store/effect/module';
 
 /**
  * @name storeOptions
@@ -17,10 +18,11 @@ const storeOptions: StoreOptions<RootStateInterface> = {
   state: initialRootState,
 
   modules: {
-    // GEN-MODULES
     infoState,
     localesState,
-    // as you create additional modules, you'll add them here similar to the itemsState
+    stateState,
+    paletteState,
+    effectState,
   },
 };
 

@@ -30,12 +30,24 @@
   "apiClient": {
     "type": "live"
   },
-  "items": {
+  "info": {
     "apiUrls": {
-      "fetchState": "/json/state",
-      "fetchInfo": "/json/info",
-      "fetchEffect": "/json/eff",
-      "fetchPalettes": "/json/pal"
-    } 
+      "fetchInfo": "http://192.168.1.217/json/info"
+    }
+  },
+  "state": {
+    "apiUrls": {
+      "fetchState": "http://192.168.1.217/json/state"
+    }
+  },
+  "effect": {
+    "apiUrls": {
+      "fetchEffect": "http://192.168.1.217/json/eff"
+    }
+  },
+  "palette": {
+    "apiUrls": {
+      "fetchPalettes": "http://192.168.1.217/json/pal"
+    }
   }
 }

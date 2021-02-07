@@ -1,6 +1,8 @@
-// GEN-IMPORTS
+import { EffectStateInterface } from '../effect/EffectState.interface';
 import { InfoStateInterface } from '../info/InfoState.interface';
+import { PaletteStateInterface } from '../palette/PaletteState.interface';
 import { LocalesStateInterface } from '../locales/LocalesState.interface';
+import { StateStateInterface } from '../state/StateState.interface';
 
 /**
  * @name RootStoreInterface
@@ -9,7 +11,9 @@ import { LocalesStateInterface } from '../locales/LocalesState.interface';
  */
 export interface RootStoreInterface {
   // GEN-INTERFACE-PROPS
+  effectState: EffectStateInterface;
   infoState: InfoStateInterface;
+  paletteState: PaletteStateInterface;
   localesState: LocalesStateInterface;
-  // additional domain-specific module interfaces we’ll be added here in the next book chapters
+  stateState: StateStateInterface;
 }

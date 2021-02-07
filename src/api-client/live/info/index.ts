@@ -7,9 +7,9 @@ import {
 import { config } from '@/config';
 
 // urls for this API client
-const urls: InfoApiClientUrlsInterface = config.items.apiUrls;
+const urls: InfoApiClientUrlsInterface = config.info.apiUrls;
 
-// instantiate the ItemsApiClient pointing at the url that returns the live data from an API server
-const itemsApiClient: InfoApiClientInterface = new InfoApiClientModel(urls);
+// instantiate the ItemsApiClient pointing at the url that returns static json mock data
+const infoApiClient: InfoApiClientInterface = new InfoApiClientModel(urls);
 // export our instance
-export default itemsApiClient;
+export default infoApiClient;

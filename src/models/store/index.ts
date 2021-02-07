@@ -8,5 +8,8 @@ export * from './root/RootStore.interface';
 // export the RootStore model
 export * from './root/RootStore.model';
 
+export * from './effect/EffectState.interface';
 export * from './info/InfoState.interface';
 export * from './locales/LocalesState.interface';
+export * from './palette/PaletteState.interface';
+export * from './state/StateState.interface';
