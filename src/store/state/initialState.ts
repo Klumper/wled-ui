@@ -28,7 +28,7 @@ export const initialStateState: StateStateInterface = {
     },
     udpn: {
       send: false,
-      recv: false
+      recv: false,
     },
     lor: 0,
     mainseg: 0,
@@ -50,7 +50,7 @@ export const initialStateState: StateStateInterface = {
       pal: 0,
       sel: true,
       rev: false,
-      mi: false
+      mi: false,
     }],
   },
 };
